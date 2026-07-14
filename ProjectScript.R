@@ -58,6 +58,8 @@ data2 = data
 data2$subject = subjects
 data2 = relocate(data2, activity, subject)
 
+# Group the data by subject and activity and find the average values for each
+# variable
 final_data = data2 %>%
   group_by(activity, subject) %>%
   summarise(across(where(is.numeric), mean), .groups = "drop")
